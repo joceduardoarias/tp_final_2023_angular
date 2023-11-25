@@ -1,0 +1,32 @@
+<!-- ticket-detail.component.html -->
+<div *ngIf="ticket" class="ticket-detail">
+    <h2>Detalle del Ticket: {{ ticket.tipo }}</h2>
+    <p>ID: {{ ticket.ticketId }}</p>
+    <p>Cliente ID: {{ ticket.clienteId }}</p>
+    <p>Estado: {{ ticket.estado }}</p>
+
+    <h3>Historial</h3>
+    <ul>
+        <li *ngFor="let hist of ticket.historial">
+            Fecha: {{ hist.fecha | date:'medium' }},
+            Detalle: {{ hist.detalle }},
+            Departamento: {{ hist.departamento }},
+            Empleado ID: {{ hist.empleadoId }}
+        </li>
+    </ul>
+
+    <h3>Soluciones Propuestas</h3>
+    <ul>
+        <li *ngFor="let sol of ticket.soluciones">
+            Fecha: {{ sol.fecha | date:'medium' }},
+            Descripción: {{ sol.descripcion }},
+            Exitosa: {{ sol.exitosa ? 'Sí' : 'No' }}
+        </li>
+    </ul>
+
+    <h3>Ubicación</h3>
+    <p>Tipo: {{ ticket.ubicacion.type }}</p>
+    <p>Coordenadas: {{ ticket.ubicacion.coordinates.join(', ') }}</p>
+
+    <button (click)="editarTicket()">Editar</button>
+</div>

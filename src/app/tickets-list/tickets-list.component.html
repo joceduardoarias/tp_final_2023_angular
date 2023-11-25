@@ -1,0 +1,12 @@
+<!-- tickets-list.component.html -->
+<div class="ticket-list-container">
+    <h2>Lista de Tickets</h2>
+    <ul class="tickets-list">
+        <li *ngFor="let ticket of tickets">
+            <h3>{{ ticket.tipo }}</h3>
+            <p>Estado: {{ ticket.estado }}</p>
+            <!-- Agrega más detalles según tu modelo de Ticket -->
+            <button (click)="verDetalle(ticket)">Ver Detalles</button>
+        </li>
+    </ul>
+</div>

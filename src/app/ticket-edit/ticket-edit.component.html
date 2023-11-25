@@ -1,0 +1,31 @@
+<!-- ticket-edit.component.html -->
+<div class="ticket-edit" *ngIf="ticket">
+    <h2>Editar Ticket: {{ ticket.ticketId }}</h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="tipo">Tipo:</label>
+            <input type="text" id="tipo" [(ngModel)]="ticket.tipo" name="tipo" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" [(ngModel)]="ticket.estado" name="estado" class="form-control">
+        </div>
+
+        <!-- Ubicación -->
+        <div class="form-group">
+            <label for="tipoUbicacion">Tipo de Ubicación:</label>
+            <input type="text" id="tipoUbicacion" [(ngModel)]="ticket.ubicacion.type" name="tipoUbicacion" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="coordenadas">Coordenadas (longitud, latitud):</label>
+            <input type="text" id="coordenadas" [(ngModel)]="ticket.ubicacion.coordinates" name="coordenadas" class="form-control">
+        </div>
+
+        <!-- Considera cómo manejar la edición de arrays como historial y soluciones -->
+        <!-- Por ejemplo, podrías mostrar y editar elementos individuales o permitir agregar nuevos elementos -->
+
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
+</div>
